@@ -2444,6 +2444,16 @@ draw_rect(SDL_Surface *surf, int x1, int y1, int x2, int y2, int width,
 }
 
 static void
+draw_triangle(SDL_Surface *surf, int x1, int y1, int x2, int y2, int x3, int y3, int width,
+          Uint32 color, int* drawn_area)
+{
+    draw_line_width(surf, color, x1, y1, x2, y2, width, drawn_area);
+    draw_line_width(surf, color, x1, y1, x3, y3, width, drawn_area);
+    draw_line_width(surf, color, x2, y3, x3, y3, width, drawn_area);
+
+}
+
+static void
 draw_round_rect(SDL_Surface *surf, int x1, int y1, int x2, int y2, int radius,
                 int width, Uint32 color, int top_left, int top_right,
                 int bottom_left, int bottom_right, int *drawn_area)
